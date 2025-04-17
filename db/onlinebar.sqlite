@@ -66,3 +66,17 @@ CREATE TABLE Entrega (
     CONTRAINT fk_Pedido FOREIGN KEY (idPedido_fk) REFERENCES pedido(idPedido),
     CONTRAINT fk_Entregador FOREIGN KEY (idEntregador_fk) REFERENCES entregador(idEntregador)
 );
+
+CREATE TABLE bebidas (
+    idBebidas INT PRIMARY KEY IDENTITY(1,1),
+    nome VARCHAR NOT NULL,
+    descricao VARCHAR,
+    preco REAL NOT NULL,
+    imagem VARCHAR(255) NOT NULL
+);
+
+INSERT INTO bebidas (nome, descricao, preco, imagem) VALUES
+    ('Cerveja Heineken', 'Long neck gelada 330ml', 6.90, 'heineken.jpg'),
+    ('Vinho Tinto Chileno', 'Garrafa 750ml', 49.90, 'vinho_tinto.jpg'),
+    ('Whisky Jack Daniel’s', 'Garrafa 1L - Old No. 7', 129.90, 'jack.jpg');
+);
