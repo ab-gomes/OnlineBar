@@ -1,0 +1,68 @@
+CREATE TABLE Usuario (
+    idUsuario INT PRIMARY KEY IDENTITY(1,1),
+    nome VACHAR(100) NOT NULL,
+    senha VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    telefone VARCHAR(15) NOT NULL,
+    cpf VARCHAR(11) NOT NULL UNIQUE,
+    endereco VARCHAR(100) NOT NULL,
+    bairro VARCHAR(50) NOT NULL,
+    cidade VARCHAR(50) NOT NULL,
+    uf VARCHAR(2) NOT NULL,
+);
+
+CREATE TABLE Produto (
+    idProduto INT PRIMARY KEY IDENTITY(1,1),
+    idUsuario_fk INT NOT NULL,
+    descricao VACHAR(250) NOT NULL,
+    valorProduto REAL NOT NULL,
+    CONTRAINT fk_Usuario FOREIGN KEY (idUsuario_fk) REFERENCES Usuario(idUsuario),
+);
+
+CREATE TABLE Pedido (
+    idPedido INT PRIMARY KEY IDENTITY(1,1),
+    idUsuario_fk INT NOT NULL,
+    valor REAL NOT NULL,
+    dtPedido DATETIME,
+    CONTRAINT fk_Usuario FOREIGN KEY (idUsuario_fk) REFERENCES Usuario(idUsuario)
+);
+
+CREATE TABLE tipoPagamento (
+    idTipoPagamento INT PRIMARY KEY IDENTITY(1,1),
+    descricao VARCHAR(250) NOT NULL
+);
+
+CREATE TABLE Pagamento (
+    idPagamento INT PRIMARY KEY IDENTITY(1,1),
+    idPedido_fk INT NOT NULL,
+    idTipoPagamento_fk INT NOT NULL,
+    sttPagamento VARCHAR(50) NOT NULL, 
+    dtPagamento DATETIME,
+    valor REAL NOT NULL,
+    CONTRAINT fk_Pedido FOREIGN KEY (idPedido_fk) REFERENCES pedido(idPedido),
+    CONTRAINT fk_tipoPagamento FOREIGN KEY (idTipoPagamento_fk) REFERENCES tipoPagamento(idTipoPagamento)
+);
+
+CREATE TABLE Entregador (
+    idEntregador INT PRIMARY KEY IDENTITY(1,1),
+    nome VACHAR(100) NOT NULL,
+    telefone VARCHAR(15) NOT NULL,
+    senha VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    cnh char(11) NOT NULL UNIQUE,
+);
+
+CREATE TABLE Entrega (
+    idEntrega INT PRIMARY KEY IDENTITY(1,1),
+    idPedido_fk INT NOT NULL,
+    idEntregador_fk INT,
+    endereco VARCHAR(100) NOT NULL,
+    bairro VARCHAR(50) NOT NULL,
+    cidade VARCHAR(50) NOT NULL,
+    uf char(2) NOT NULL,
+    complemento VARCHAR(100),
+    stt VARCHAR(50) NOT NULL,
+    codigoEntrega ,
+    CONTRAINT fk_Pedido FOREIGN KEY (idPedido_fk) REFERENCES pedido(idPedido),
+    CONTRAINT fk_Entregador FOREIGN KEY (idEntregador_fk) REFERENCES entregador(idEntregador)
+);
