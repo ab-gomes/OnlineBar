@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Teko:wght@300..700&display=swap');
+
+:root {
+    --bordo: #5D001E;
+    --dourado: #D4AF37;
+    --preto: #1C1C1C;
+    --bege-claro: #F5F5DC;
+    --cinza-escuro: #2F2F2F;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Teko', sans-serif;
+}
+
+body{
+    background-color: var(--cinza-escuro);
+    color: var(--dourado);
+}
+
+header {
+    background: var(--preto);
+    color: var(--bordo);
+    display: flex;
+    align-items:baseline;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    text-decoration: none;
+    font-size: 1rem;
+  }
+
+  nav li {
+    list-style: none;
+    display: inline-block;
+  }
+
+  nav a {
+    color: var(--bege-claro);
+    margin: 0 1rem;
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.3s ease;
+
+  }
+
+  nav a:hover {
+    color: #5D001E;
+    text-decoration: none;
+  }
+
+  h2 {
+    font-size: 2rem;
+    margin: 1rem 0;
+    text-align: center;
+    color: var(--dourado);
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 2rem 5rem;
+    padding: 2rem;
+    border-radius: 30px;
+    background-color: var(--bege-claro);
+    border: 2px solid var(--bordo);
+  }
+
+  button {
+    background-color: var(--bordo);
+    color: var(--bege-claro);
+    border-radius: 15px;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+    button:hover {
+        background-color: var(--dourado);
+        color: var(--bordo);
+    }
+
+  .footer {
+    background-color: #1a1a1a;
+    color: #fff;
+    text-align: center;
+    padding: 1rem;
+}

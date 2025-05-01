@@ -1,0 +1,15 @@
+{
+    "editor.formatOnSave": true,
+    "files.autoSave": "afterDelay",
+    "php.validate.executablePath": "C:/xampp/php/php.exe",
+    "editor.tabSize": 2,
+    "prettier.singleQuote": true,
+    "prettier.trailingComma": "none",
+    "sqltools.connections": [
+      {
+        "name": "SQLite",
+        "driver": "SQLite",
+        "database": "${workspaceFolder}/database/onlinebar.sqlite"
+      }
+    ]
+  }

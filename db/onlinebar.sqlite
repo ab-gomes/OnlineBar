@@ -14,8 +14,11 @@ CREATE TABLE Usuario (
 CREATE TABLE Produto (
     idProduto INT PRIMARY KEY IDENTITY(1,1),
     idUsuario_fk INT NOT NULL,
-    descricao VACHAR(250) NOT NULL,
-    valorProduto REAL NOT NULL,
+    nome VARCHAR NOT NULL,
+    tipo VARCHAR NOT NULL,
+    teor_alcoolico REAL,
+    preco REAL,
+    imagem VARCHAR
     CONTRAINT fk_Usuario FOREIGN KEY (idUsuario_fk) REFERENCES Usuario(idUsuario),
 );
 
@@ -67,16 +70,8 @@ CREATE TABLE Entrega (
     CONTRAINT fk_Entregador FOREIGN KEY (idEntregador_fk) REFERENCES entregador(idEntregador)
 );
 
-CREATE TABLE bebidas (
-    idBebidas INT PRIMARY KEY IDENTITY(1,1),
-    nome VARCHAR NOT NULL,
-    descricao VARCHAR,
-    preco REAL NOT NULL,
-    imagem VARCHAR(255) NOT NULL
-);
-
-INSERT INTO bebidas (nome, descricao, preco, imagem) VALUES
-    ('Cerveja Heineken', 'Long neck gelada 330ml', 6.90, 'heineken.jpg'),
+INSERT INTO Produto (nome, descricao, preco, imagem) VALUES
+    ('Cerveja Heineken', 'Long neck gelada 330ml', 6.90, 'Cerveja_Heineken_longneck.png'),
     ('Vinho Tinto Chileno', 'Garrafa 750ml', 49.90, 'vinho_tinto.jpg'),
-    ('Whisky Jack Daniel’s', 'Garrafa 1L - Old No. 7', 129.90, 'jack.jpg');
+    ('Whisky Jack Daniel’s', 'Garrafa 1L - Old No. 7', 129.90, 'destilado1.png');
 );
